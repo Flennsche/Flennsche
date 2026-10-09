@@ -97,11 +97,10 @@ export class TogetherCore extends DurableObject {
       if(!user)return new Response("Unauthorized",{status:401});
 
       const pair=new WebSocketPair();
-      const [client,server]=Object.values(pair);
-      this.ctx.acceptWebSocket(server);
-      server.serializeAttachment({uid});
-      server.send(JSON.stringify({type:"AUTHENTICATED",user:{id:user.id,name:user.name,email:user.email}}));
-      return new Response(null,{status:101,webSocket:client});
+    const user=await this.userFromRequest(request);
+if(url.pathname==="/api/me"){
+  return user ? json({user:{id:user.id,name:user.name,email:user.email}}) : json({error:"Nicht angemeldet"},401);
+}
     }
 
     if(url.pathname==="/api/register" && request.method==="POST"){
