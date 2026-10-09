@@ -1,0 +1,1109 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#090914">
+<meta name="description" content="Together — Couple Universe">
+<title>Together ❤️ 6.0 — Couple Universe</title>
+<link rel="manifest" href="manifest.json">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+ --bg:#070710;--bg2:#0d0d1a;--panel:rgba(18,18,32,.66);--panel2:rgba(27,27,48,.72);
+ --text:#fbf9ff;--muted:#aaa8bd;--pink:#ff4f91;--purple:#8b5cf6;--cyan:#43ddff;
+ --gold:#ffd166;--green:#62e6a7;--red:#ff6b81;--line:rgba(255,255,255,.095);
+ --shadow:0 30px 100px rgba(0,0,0,.48);--r:26px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;min-height:100vh;color:var(--text);font-family:"DM Sans",system-ui,sans-serif;
+ background:
+ radial-gradient(700px 500px at 8% 0%,rgba(139,92,246,.19),transparent 70%),
+ radial-gradient(600px 500px at 92% 7%,rgba(255,79,145,.16),transparent 70%),
+ radial-gradient(700px 500px at 50% 100%,rgba(67,221,255,.07),transparent 70%),var(--bg);
+ overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.55;
+ background-image:linear-gradient(rgba(255,255,255,.016) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.016) 1px,transparent 1px);
+ background-size:38px 38px;mask-image:linear-gradient(to bottom,#000,transparent 92%);z-index:-2}
+body:after{content:"";position:fixed;inset:-30%;pointer-events:none;z-index:-1;
+ background:conic-gradient(from 180deg at 50% 50%,transparent 0 28%,rgba(139,92,246,.035),transparent 45% 70%,rgba(255,79,145,.03),transparent 85%);
+ animation:ambient 18s linear infinite}
+button,input,textarea{font:inherit}button{cursor:pointer}
+button:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid var(--cyan);outline-offset:2px}
+.app{width:min(1320px,100%);margin:auto;padding:18px 18px 120px}
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:16px;position:sticky;top:0;z-index:50;padding:10px 0 18px;background:linear-gradient(var(--bg) 48%,transparent)}
+.brand{display:flex;align-items:center;gap:12px}.logo{width:50px;height:50px;border-radius:17px;display:grid;place-items:center;
+ background:linear-gradient(135deg,var(--pink),var(--purple));box-shadow:0 12px 45px rgba(255,79,145,.28);font-size:25px;position:relative}
+.logo:after{content:"";position:absolute;inset:-5px;border-radius:20px;border:1px solid rgba(255,255,255,.13);animation:halo 2.6s ease-in-out infinite}
+.brand b{font:800 20px "Plus Jakarta Sans";letter-spacing:-.03em}.brand small{display:block;color:var(--muted);margin-top:2px}
+.status{display:flex;align-items:center;gap:9px;padding:10px 14px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.045);font-size:13px;backdrop-filter:blur(18px)}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 18px var(--green);animation:pulse 1.8s infinite}
+.hero{position:relative;overflow:hidden;border:1px solid var(--line);border-radius:34px;padding:38px;min-height:390px;
+ background:linear-gradient(135deg,rgba(255,79,145,.13),rgba(139,92,246,.11) 42%,rgba(67,221,255,.065));
+ box-shadow:var(--shadow);isolation:isolate}
+.hero:before{content:"";position:absolute;width:360px;height:360px;right:7%;top:5%;border-radius:50%;
+ background:radial-gradient(circle,rgba(255,255,255,.06),transparent 63%);filter:blur(1px);z-index:-1}
+.hero h1{font:800 clamp(38px,6vw,78px)/.95 "Plus Jakarta Sans";letter-spacing:-.065em;margin:12px 0 18px;max-width:780px}
+.hero p{color:#cbc9d9;max-width:690px;font-size:16px;line-height:1.65;margin:0}
+.badge{display:inline-flex;gap:7px;align-items:center;border:1px solid var(--line);border-radius:999px;padding:7px 11px;color:#e5e2ef;font-size:12px;background:rgba(255,255,255,.035)}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+.btn{border:1px solid var(--line);color:var(--text);background:rgba(255,255,255,.055);border-radius:15px;padding:12px 16px;font-weight:750;
+ transition:transform .25s cubic-bezier(.2,.8,.2,1),filter .25s,box-shadow .25s,border-color .25s;position:relative;overflow:hidden}
+.btn:before{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent,rgba(255,255,255,.1),transparent);transform:translateX(-130%);transition:.6s}
+.btn:hover{transform:translateY(-3px);filter:brightness(1.14);border-color:rgba(255,255,255,.16);box-shadow:0 12px 30px rgba(0,0,0,.2)}
+.btn:hover:before{transform:translateX(130%)}.primary{border:0;background:linear-gradient(135deg,var(--pink),var(--purple));box-shadow:0 12px 35px rgba(139,92,246,.28)}
+.orbit{position:absolute;right:-80px;top:-105px;width:470px;height:470px;border-radius:50%;border:1px solid rgba(255,255,255,.12);animation:spin 26s linear infinite}
+.orbit:before,.orbit:after{content:"";position:absolute;border-radius:50%}.orbit:before{width:115px;height:115px;left:72px;top:62px;background:radial-gradient(circle,var(--pink),transparent 65%);box-shadow:0 0 90px var(--pink)}
+.orbit:after{width:82px;height:82px;right:58px;bottom:70px;background:radial-gradient(circle,var(--cyan),transparent 65%);box-shadow:0 0 80px var(--cyan)}
+.orbit .planet{position:absolute;width:15px;height:15px;border-radius:50%;background:white;box-shadow:0 0 22px white;left:50%;top:-7px}
+.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:16px;margin-top:18px}
+.card{grid-column:span 4;border:1px solid var(--line);border-radius:var(--r);background:var(--panel);backdrop-filter:blur(22px) saturate(130%);
+ padding:20px;box-shadow:0 14px 42px rgba(0,0,0,.19);animation:rise .65s both;transform-style:preserve-3d}
+.card:hover{border-color:rgba(255,255,255,.14);box-shadow:0 20px 60px rgba(0,0,0,.25)}
+.wide{grid-column:span 8}.full{grid-column:1/-1}.card h2{font:800 18px "Plus Jakarta Sans";margin:0 0 8px}.muted{color:var(--muted)}
+.statrow{display:flex;justify-content:space-between;align-items:center;gap:12px}.big{font:800 36px "Plus Jakarta Sans";letter-spacing:-.05em}
+.progress{height:10px;background:rgba(255,255,255,.065);border-radius:99px;overflow:hidden;margin:12px 0}.progress>i{display:block;height:100%;
+ background:linear-gradient(90deg,var(--pink),var(--purple),var(--cyan));border-radius:inherit;transition:width .9s cubic-bezier(.2,.8,.2,1);box-shadow:0 0 18px rgba(139,92,246,.35)}
+.nav{position:fixed;left:50%;bottom:14px;transform:translateX(-50%);z-index:80;display:flex;gap:5px;padding:7px;border:1px solid var(--line);
+ border-radius:22px;background:rgba(8,8,18,.78);backdrop-filter:blur(24px) saturate(140%);box-shadow:var(--shadow);width:min(700px,calc(100% - 24px))}
+.nav button{flex:1;background:none;border:0;color:var(--muted);padding:10px 6px;border-radius:15px;font-weight:750;font-size:12px;transition:.25s}
+.nav button:hover{color:#fff}.nav button.active{color:white;background:linear-gradient(135deg,rgba(255,79,145,.16),rgba(139,92,246,.2));box-shadow:inset 0 0 0 1px rgba(255,255,255,.07)}
+.screen{display:none}.screen.active{display:block;animation:screenIn .45s ease both}
+.code{font:800 34px "Plus Jakarta Sans";letter-spacing:.13em;margin:13px 0;background:linear-gradient(90deg,var(--pink),var(--cyan));-webkit-background-clip:text;color:transparent}
+.input{width:100%;padding:14px;border:1px solid var(--line);background:rgba(255,255,255,.045);border-radius:14px;color:white;outline:0}
+.input:focus{border-color:rgba(255,79,145,.65);box-shadow:0 0 0 4px rgba(255,79,145,.09)}
+.quest{display:flex;align-items:center;gap:12px;padding:12px;border:1px solid var(--line);border-radius:16px;margin-top:9px;background:rgba(255,255,255,.03);transition:.25s}
+.quest:hover{background:rgba(255,255,255,.055);transform:translateX(2px)}.quest.done{opacity:.5}.check{width:30px;height:30px;border-radius:10px;border:1px solid var(--line);display:grid;place-items:center;flex:none}
+.timeline{display:flex;gap:12px;overflow:auto;padding-bottom:4px;scrollbar-width:thin}.memory{min-width:190px;padding:15px;border-radius:18px;background:rgba(255,255,255,.04);border:1px solid var(--line);transition:.25s}
+.memory:hover{transform:translateY(-3px);background:rgba(255,255,255,.065)}
+.emoji{font-size:40px}.toast{position:fixed;top:84px;left:50%;transform:translateX(-50%) translateY(-20px);opacity:0;z-index:200;padding:12px 18px;border-radius:14px;
+ background:#1b1b2d;border:1px solid var(--line);box-shadow:var(--shadow);transition:.3s;pointer-events:none}.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.modal{position:fixed;inset:0;display:none;place-items:center;background:rgba(0,0,0,.7);backdrop-filter:blur(12px);z-index:100;padding:18px}.modal.show{display:grid}
+.modalbox{max-width:600px;width:100%;padding:26px;border:1px solid var(--line);border-radius:30px;background:linear-gradient(145deg,#171726,#10101d);
+ box-shadow:var(--shadow);animation:pop .35s cubic-bezier(.2,.9,.2,1)}
+/* HOUSE */
+.house{height:290px;border-radius:24px;position:relative;overflow:hidden;background:linear-gradient(#171632 0 58%,#15372f 58%);
+ border:1px solid var(--line);box-shadow:inset 0 0 70px rgba(0,0,0,.25)}
+.house:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 50% 85%,rgba(255,79,145,.16),transparent 28%);animation:breathe 4s ease-in-out infinite}
+.moon{position:absolute;right:34px;top:26px;width:60px;height:60px;border-radius:50%;background:#fff4c4;box-shadow:0 0 50px #fff4c4}
+.housebody{position:absolute;left:50%;bottom:34px;transform:translateX(-50%);width:225px;height:138px;background:#5b3c65;border-radius:8px 8px 5px 5px;border:4px solid #34233e}
+.roof{position:absolute;left:50%;bottom:172px;transform:translateX(-50%);width:268px;height:106px;background:linear-gradient(135deg,#8a476e,#613e79);clip-path:polygon(50% 0,100% 100%,0 100%);filter:drop-shadow(0 12px 15px rgba(0,0,0,.25))}
+.window{position:absolute;width:46px;height:52px;background:#b8f1ff;bottom:58px;border:5px solid #34233e;box-shadow:0 0 28px rgba(56,217,255,.4)}.w1{left:29px}.w2{right:29px}
+.door{position:absolute;width:48px;height:79px;background:#3b2944;bottom:0;left:50%;transform:translateX(-50%);border:3px solid #271b2f}
+.particle{position:absolute;width:6px;height:6px;border-radius:50%;background:white;opacity:.6;animation:drift 5s linear forwards}
+.stars{position:absolute;inset:0;pointer-events:none}.star{position:absolute;width:2px;height:2px;background:#fff;border-radius:50%;box-shadow:0 0 8px #fff;animation:twinkle 2.5s infinite alternate}
+
+.couple-reactor{margin-top:18px;padding:22px;border-radius:28px;border:1px solid rgba(255,255,255,.1);background:
+ radial-gradient(300px 160px at 50% 50%,rgba(255,79,145,.11),transparent 72%),rgba(255,255,255,.025);position:relative;overflow:hidden}
+.reactor-orb{width:150px;height:150px;margin:0 auto;border-radius:50%;display:grid;place-items:center;font-size:58px;
+ background:radial-gradient(circle,rgba(255,255,255,.2),rgba(255,79,145,.12) 30%,rgba(139,92,246,.06) 62%,transparent 72%);
+ box-shadow:0 0 45px rgba(255,79,145,.2),inset 0 0 35px rgba(255,255,255,.06);animation:reactor 4s ease-in-out infinite}
+.reactor-wave{position:absolute;left:50%;top:50%;width:170px;height:170px;transform:translate(-50%,-50%);border:1px solid rgba(255,79,145,.25);border-radius:50%;animation:wave 2.6s ease-out infinite}
+.reactor-wave:nth-child(2){animation-delay:.9s}.reactor-wave:nth-child(3){animation-delay:1.8s}
+.reactor-label{text-align:center;margin-top:12px;font-weight:800}.reactor-label small{display:block;color:var(--muted);font-weight:500;margin-top:4px}
+@keyframes reactor{50%{transform:scale(1.08);filter:brightness(1.2)}}
+@keyframes wave{0%{transform:translate(-50%,-50%) scale(.6);opacity:.8}100%{transform:translate(-50%,-50%) scale(2.1);opacity:0}}
+
+/* CONNECTION */
+.connection-card{position:relative;overflow:hidden;background:
+ radial-gradient(350px 220px at 12% 50%,rgba(255,79,145,.11),transparent 70%),
+ radial-gradient(350px 220px at 88% 50%,rgba(67,221,255,.09),transparent 70%),var(--panel)}
+.connection-stage{position:relative;height:190px;margin:18px 0;border:1px solid rgba(255,255,255,.07);border-radius:24px;overflow:hidden;background:rgba(0,0,0,.12)}
+.connection-stage:before{content:"";position:absolute;left:13%;right:13%;top:50%;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.14),transparent)}
+.conn-node{position:absolute;top:50%;transform:translateY(-50%);width:82px;height:82px;border-radius:28px;display:grid;place-items:center;
+ background:linear-gradient(145deg,rgba(255,255,255,.09),rgba(255,255,255,.025));border:1px solid var(--line);font-size:32px;box-shadow:0 15px 45px rgba(0,0,0,.3)}
+.conn-node.you{left:8%}.conn-node.partner{right:8%}
+.conn-label{position:absolute;top:calc(50% + 48px);font-size:11px;color:var(--muted)}.conn-label.you{left:calc(8% + 9px)}.conn-label.partner{right:calc(8% + 4px)}
+.connection-line{position:absolute;left:calc(8% + 82px);right:calc(8% + 82px);top:50%;height:3px;transform:translateY(-50%);
+ background:linear-gradient(90deg,var(--pink),var(--purple),var(--cyan));border-radius:99px;filter:drop-shadow(0 0 10px rgba(139,92,246,.65));
+ transform-origin:left center;animation:connectionFlow 2s linear infinite}
+.connection-line:after{content:"";position:absolute;right:-2px;top:50%;width:10px;height:10px;border-radius:50%;background:white;transform:translateY(-50%);
+ box-shadow:0 0 18px var(--cyan),0 0 35px var(--cyan);animation:travel 2.4s linear infinite}
+.connection-line.pending{background:repeating-linear-gradient(90deg,var(--pink) 0 12px,transparent 12px 24px);filter:drop-shadow(0 0 8px rgba(255,79,145,.5))}
+.connection-line.pending:after{display:none}
+.connection-ring{position:absolute;inset:calc(50% - 56px) auto auto calc(8% - 11px);width:104px;height:104px;border-radius:34px;border:1px solid rgba(255,79,145,.25);animation:ring 2s infinite}
+.connection-ring.partner{left:auto;right:calc(8% - 11px);border-color:rgba(67,221,255,.25)}
+.connection-state{text-align:center;font-weight:800;font-size:14px}.connection-state small{display:block;color:var(--muted);font-weight:500;margin-top:5px}
+/* little status chips */
+.live-chip{display:inline-flex;align-items:center;gap:6px;padding:6px 9px;border-radius:999px;background:rgba(98,230,167,.08);color:#aef5d0;border:1px solid rgba(98,230,167,.15);font-size:11px}
+.live-chip i{width:6px;height:6px;border-radius:50%;background:var(--green);box-shadow:0 0 10px var(--green)}
+/* responsive */
+@media(max-width:850px){.card,.wide{grid-column:1/-1}.hero{padding:25px;min-height:430px}.orbit{opacity:.3;right:-180px}.nav button{font-size:10px}.nav button span{display:block;margin-top:2px}.connection-stage{height:170px}.conn-node{width:70px;height:70px;border-radius:24px}.connection-line{left:calc(8% + 70px);right:calc(8% + 70px)}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.001ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.001ms!important}}
+@keyframes pulse{50%{opacity:.35;transform:scale(.7)}}@keyframes float{50%{transform:translateY(-5px) rotate(-2deg)}}
+@keyframes spin{to{transform:rotate(360deg)}}@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@keyframes pop{from{opacity:0;transform:scale(.93) translateY(8px)}to{opacity:1;transform:none}}
+@keyframes drift{from{transform:translateY(10px) scale(.7);opacity:0}18%{opacity:.8}to{transform:translateY(-290px) scale(1.15);opacity:0}}
+@keyframes ambient{to{transform:rotate(360deg)}}@keyframes halo{50%{transform:scale(1.08);opacity:.3}}
+@keyframes screenIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@keyframes breathe{50%{opacity:.65;transform:scale(1.04)}}@keyframes twinkle{from{opacity:.2}to{opacity:1}}
+@keyframes connectionFlow{to{background-position:160px 0}}@keyframes travel{from{right:0;opacity:0}15%{opacity:1}to{right:100%;opacity:0}}
+@keyframes ring{50%{transform:scale(1.12);opacity:.45}}
+</style>
+</head>
+<body>
+<div class="app">
+<header class="topbar">
+ <div class="brand"><div class="logo">❤️</div><div><b>Together</b><small>Couple Universe 6.0</small></div></div>
+ <div class="status"><i class="dot" id="statusDot"></i><span id="statusText">Bereit</span></div>
+</header>
+
+<section class="screen active" id="home">
+ <div class="hero">
+  <div class="badge">✨ NEXT LEVEL · COUPLE UNIVERSE</div>
+  <h1>Aus zwei Menschen wird eine kleine Welt.</h1>
+  <p>Ein gemeinsamer Space für Erinnerungen, Challenges, Stimmung, Nachrichten, Belohnungen und euer eigenes digitales Zuhause — mit deutlich smootheren Animationen und einem komplett überarbeiteten Connection-Flow.</p>
+  <div class="actions"><button class="btn primary" onclick="openPair()">💞 Partner verbinden</button><button class="btn" onclick="show('universe')">🚀 Universum öffnen</button></div>
+  <div class="orbit"><div class="planet"></div></div>
+ </div>
+ <div class="grid">
+  <div class="card"><div class="statrow"><div><div class="muted">Gemeinsame Tage</div><div class="big" id="days">1</div></div><div class="emoji">🌙</div></div><div class="progress"><i id="daybar" style="width:34%"></i></div><small class="muted">Jeder Tag ist ein neues Kapitel.</small></div>
+  <div class="card"><div class="statrow"><div><div class="muted">Love XP</div><div class="big" id="xp">240</div></div><div class="emoji">💖</div></div><div class="progress"><i id="xpbar" style="width:62%"></i></div><small class="muted">Level <b id="level">4</b> · Herz wächst weiter</small></div>
+  <div class="card"><div class="statrow"><div><div class="muted">Couple Coins</div><div class="big" id="coins">850</div></div><div class="emoji">🪙</div></div><button class="btn" style="margin-top:10px;width:100%" onclick="reward()">🎁 Daily Bonus einsammeln</button></div>
+  <div class="card wide"><h2>🔥 Heute für euch</h2><div class="quest"><div class="check">💬</div><div style="flex:1"><b>3 echte Komplimente</b><div class="muted">Gebt euch heute bewusst etwas Liebe.</div></div><button class="btn" onclick="completeQuest(this)">+50 XP</button></div><div class="quest"><div class="check">📸</div><div style="flex:1"><b>Ein gemeinsames Foto</b><div class="muted">Fügt es euren Erinnerungen hinzu.</div></div><button class="btn" onclick="completeQuest(this)">+75 XP</button></div></div>
+  <div class="card"><h2>💭 Mood Sync</h2><div class="emoji" id="moodEmoji">🥰</div><p id="moodText">Verliebt & glücklich</p><div class="actions"><button class="btn" onclick="mood('🥰','Verliebt & glücklich')">🥰</button><button class="btn" onclick="mood('😴','Müde')">😴</button><button class="btn" onclick="mood('🔥','On fire')">🔥</button></div></div>
+ </div>
+</section>
+
+<section class="screen" id="universe"><div class="grid">
+ <div class="card full"><div class="badge">🌌 LIVING WORLD</div><h2 style="font-size:28px;margin-top:12px">Euer Couple-Universum</h2><p class="muted">Sammelt Love XP und schaltet neue Orte, Haustiere, Möbel und gemeinsame Events frei. Die Welt reagiert jetzt auch visuell auf eure Aktionen.</p></div>
+ <div class="card wide"><div class="house" id="house"><div class="stars" id="stars"></div><div class="moon"></div><div class="roof"></div><div class="housebody"><div class="window w1"></div><div class="window w2"></div><div class="door"></div></div></div><div class="actions"><button class="btn" onclick="houseAction('💧','Haus gegossen · +10 XP')">💧 Gießen</button><button class="btn" onclick="houseAction('💖','Liebe geschenkt · +15 XP')">💖 Liebe</button><button class="btn" onclick="houseAction('☀️','Sonne gegeben · +10 XP')">☀️ Sonne</button></div></div>
+ <div class="card"><h2>🐾 Euer Pet</h2><div class="emoji" id="pet">🐣</div><b id="petName">Mochi</b><p class="muted">Noch 160 XP bis zur nächsten Entwicklung.</p><div class="progress"><i id="petbar" style="width:44%"></i></div><button class="btn primary" style="width:100%" onclick="feedPet()">🍓 Füttern · 20 🪙</button></div>
+ <div class="card"><h2>🏆 Achievements</h2><div class="quest"><div>💞</div><div><b>First Connection</b><div class="muted" id="achConnect">Noch nicht verbunden.</div></div></div><div class="quest"><div>🔥</div><div><b>7 Day Streak</b><div class="muted">Noch 3 Tage.</div></div></div><div class="quest"><div>🌟</div><div><b>Memory Maker</b><div class="muted">12 Erinnerungen.</div></div></div></div>
+ <div class="card full"><h2>🗺️ Nächste Unlocks</h2><div class="timeline"><div class="memory">🏖️<br><b>Beach Date</b><br><small class="muted">Level 5</small></div><div class="memory">🎢<br><b>Adventure Park</b><br><small class="muted">Level 7</small></div><div class="memory">🏰<br><b>Dream Villa</b><br><small class="muted">Level 10</small></div><div class="memory">🚀<br><b>Moon Trip</b><br><small class="muted">Level 15</small></div></div></div>
+</div></section>
+
+<section class="screen" id="memories"><div class="grid">
+ <div class="card full"><h2>📸 Unsere Timeline</h2><p class="muted">Eure Momente, Love Letters und kleinen Siege an einem Ort.</p><div class="timeline" id="memoryList"><div class="memory">💗<br><b>Unsere erste Seite</b><br><small class="muted">Heute</small></div><div class="memory">🌅<br><b>Sunset Moment</b><br><small class="muted">Vor 3 Tagen</small></div><div class="memory">🍕<br><b>Pizza Night</b><br><small class="muted">Vor 7 Tagen</small></div></div><button class="btn primary" style="margin-top:14px" onclick="addMemory()">＋ Erinnerung hinzufügen</button></div>
+ <div class="card wide"><h2>💌 Love Letter</h2><textarea class="input" id="letter" rows="7" placeholder="Schreib etwas, das dein Partner später öffnen soll..."></textarea><button class="btn primary" style="margin-top:10px" onclick="saveLetter()">💖 Versiegeln</button></div>
+ <div class="card"><h2>🎲 Random Date</h2><div class="big" id="dateIdea">—</div><p class="muted">Eine spontane Idee für euch.</p><button class="btn" onclick="dateIdea()">🎲 Neue Idee</button></div>
+</div></section>
+
+<section class="screen" id="connect"><div class="grid">
+ <div class="card full connection-card">
+   <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+    <div><div class="badge">🔔 INCOMING LIVE CONNECTION</div><h2 style="font-size:30px;margin:12px 0 4px">Ein Code. Eine Anfrage. Eine Verbindung.</h2><p class="muted" style="margin:0">Der komplette Flow zeigt jetzt sichtbar, was gerade passiert — statt dass eine Anfrage einfach im Hintergrund verschwindet.</p></div>
+    <span class="live-chip"><i></i> Connection Engine</span>
+   </div>
+   <div class="couple-reactor">
+    <div class="reactor-wave"></div><div class="reactor-wave"></div><div class="reactor-wave"></div>
+    <div class="reactor-orb">🫀</div>
+    <div class="reactor-label">COUPLE REACTOR <small>Der Puls läuft nur mit einer echten Live-Verbindung.</small></div>
+   </div>
+   <div class="connection-stage" id="connectionStage">
+    <div class="conn-node you">🫵</div><div class="conn-node partner" id="partnerNode">💞</div>
+    <div class="conn-label you">DU</div><div class="conn-label partner">PARTNER</div>
+    <div class="connection-ring"></div><div class="connection-ring partner"></div>
+    <div class="connection-line pending" id="connectionLine"></div>
+   </div>
+   <div class="connection-state" id="connectionState">Noch nicht verbunden<small id="connectionSub">Erstelle einen Couple-Code oder gib einen vorhandenen Code ein.</small></div>
+ </div>
+ <div class="card wide"><div class="badge">✨ DEIN CODE</div><h2 style="font-size:28px;margin-top:12px">Einmal erstellen, immer wieder verwenden.</h2><p class="muted">Der Code bleibt in deinem lokalen Profil erhalten. Für echte geräteübergreifende Synchronisierung wird der Backend-Teil benötigt.</p><div class="code" id="myCode">—</div><div class="actions"><button class="btn primary" onclick="createCode()">✨ Couple-Code erstellen</button><button class="btn" onclick="copyCode()">📋 Kopieren</button></div></div>
+ <div class="card"><h2>🔗 Beitreten</h2><input class="input" id="joinCode" placeholder="z.B. TOGETHER-8F4K2P" autocomplete="off"><button class="btn primary" style="width:100%;margin-top:10px" onclick="requestJoin()">💞 Verbindung anfragen</button><p class="muted" id="pairMsg" style="margin-top:12px">Die Anfrage wird direkt über den Together-Server an dein Gegenüber gesendet.</p></div>
+ <div class="card full"><h2>🛡️ Was passiert?</h2><div class="grid" style="margin-top:4px"><div class="quest" style="grid-column:span 4"><div>1</div><div><b>Code</b><div class="muted">Partner gibt deinen Couple-Code ein.</div></div></div><div class="quest" style="grid-column:span 4"><div>2</div><div><b>Anfrage</b><div class="muted">Der Connection-Status zeigt den Transport live.</div></div></div><div class="quest" style="grid-column:span 4"><div>3</div><div><b>Accept</b><div class="muted">Nach Bestätigung wird die Linie aktiv.</div></div></div></div></div>
+ </div>
+</section>
+
+<section class="screen" id="chat"><div class="grid"><div class="card full"><h2>💬 Private Couple Chat</h2><div id="messages" style="min-height:300px;max-height:48vh;overflow:auto;padding:8px 0"></div><div style="display:flex;gap:8px;margin-top:12px"><input class="input" id="chatInput" placeholder="Schreib deinem Lieblingsmenschen..." onkeydown="if(event.key==='Enter')sendMsg()"><button class="btn primary" onclick="sendMsg()">Senden</button></div></div></div></section>
+</div>
+
+<nav class="nav">
+<button class="active" onclick="show('home')">🏠<span>Home</span></button><button onclick="show('universe')">🌌<span>Universum</span></button>
+<button onclick="show('memories')">📸<span>Momente</span></button><button onclick="show('connect')">🔗<span>Connect</span></button><button onclick="show('chat')">💬<span>Chat</span></button>
+</nav>
+
+<div class="modal" id="pairModal"><div class="modalbox">
+ <div class="badge">💞 EINGEHENDE ANFRAGE</div><h2 style="font-size:28px">Jemand möchte in eure Welt.</h2><p class="muted">Dein Partner-Browser hat eine echte WebRTC-Verbindung geöffnet. Erst nach dem gegenseitigen Handshake wird sie als online bestätigt.</p>
+ <div class="connection-stage" style="height:150px;margin-bottom:16px"><div class="conn-node you" style="font-size:27px">🫵</div><div class="conn-node partner" style="font-size:27px">💗</div><div class="connection-line pending"></div></div>
+ <div class="code" id="requestCode">—</div><div class="actions"><button class="btn primary" onclick="acceptPair()">❤️ VERBINDUNG BESTÄTIGEN</button><button class="btn" onclick="rejectPair()">Ablehnen</button></div>
+</div></div>
+<div class="toast" id="toast"></div>
+
+<script>
+const SKEY="together63";
+const defaultState={xp:240,coins:850,days:1,mood:["🥰","Verliebt & glücklich"],code:null,paired:false,pet:"🐣",messages:[],letter:""};
+let state=Object.assign({},defaultState,JSON.parse(localStorage.getItem(SKEY)||"{}"));
+let peer=null,conn=null,role=null,intentionalClose=false,helloSent=false,helloAck=false,remoteReady=false;
+const $=id=>document.getElementById(id);
+function save(){localStorage.setItem(SKEY,JSON.stringify(state));render();}
+function toast(t){$("toast").textContent=t;$("toast").classList.add("show");clearTimeout(window._toast);window._toast=setTimeout(()=>$("toast").classList.remove("show"),2600);}
+function escapeHtml(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+function show(id){document.querySelectorAll(".screen").forEach(x=>x.classList.remove("active"));$(id).classList.add("active");document.querySelectorAll(".nav button").forEach(x=>x.classList.remove("active"));let i=["home","universe","memories","connect","chat"].indexOf(id);document.querySelectorAll(".nav button")[i]?.classList.add("active");window.scrollTo({top:0,behavior:"smooth"});}
+function online(){return !!(conn&&conn.open&&helloSent&&helloAck&&remoteReady)}
+function setConn(mode,title,sub){
+ const line=$("connectionLine"), st=$("connectionState"), subEl=$("connectionSub");
+ line.classList.toggle("pending",mode!=="connected");
+ st.firstChild.textContent=title;subEl.textContent=sub;
+ $("onlineLamp").style.background=mode==="connected"?"#62e6a7":mode==="connecting"?"#ffd166":"#ff6b81";
+ $("onlineLamp").style.boxShadow=mode==="connected"?"0 0 16px #62e6a7":mode==="connecting"?"0 0 16px #ffd166":"0 0 16px #ff6b81";
+ $("statusText").textContent=mode==="connected"?"❤️ Echt online":mode==="connecting"?"⏳ Verbindet…":"⚫ Offline";
+ $("statusDot").style.background=mode==="connected"?"#62e6a7":mode==="connecting"?"#ffd166":"#ff6b81";
+ $("statusDot").style.boxShadow=mode==="connected"?"0 0 18px #62e6a7":mode==="connecting"?"0 0 18px #ffd166":"0 0 18px #ff6b81";
+}
+function render(){
+ $("xp").textContent=state.xp;$("coins").textContent=state.coins;$("days").textContent=state.days;$("level").textContent=Math.floor(state.xp/60)+1;
+ $("xpbar").style.width=((state.xp%60)/60*100)+"%";$("moodEmoji").textContent=state.mood[0];$("moodText").textContent=state.mood[1];
+ $("myCode").textContent=state.code||"—";$("pet").textContent=state.pet;$("petbar").style.width=Math.min(100,30+(state.xp%200)/2)+"%";
+ $("achConnect").textContent=online()?"Echte Verbindung aktiv.":"Noch nicht online verbunden.";
+ $("messages").innerHTML=state.messages.map(m=>`<div style="display:flex;justify-content:${m.me?"flex-end":"flex-start"};margin:8px 0"><div style="max-width:78%;padding:11px 14px;border-radius:16px;background:${m.me?"linear-gradient(135deg,#ff4f91,#8b5cf6)":"rgba(255,255,255,.06)"}">${escapeHtml(m.text)}<div style="font-size:10px;opacity:.65;margin-top:4px">${m.me?"Du":"Freund"}</div></div></div>`).join("");
+ if(online())setConn("connected","Ihr seid live verbunden ❤️","Beide Browser haben den echten Handshake bestätigt. Daten laufen jetzt live.");
+ else if(peer && role==="host")setConn("connecting","Warte auf deine Freundin/deinen Freund…","Dein Code ist online. Sobald der echte Handshake bestätigt ist, bekommst du eine Benachrichtigung.");
+ else if(peer && role==="guest")setConn("connecting","Verbindung wird geprüft…","Dein Browser ist verbunden, aber wir warten noch auf die Bestätigung des anderen Geräts.");
+ else setConn("offline","Nicht verbunden","Erstelle deinen echten Online-Code oder gib den Code deines Partners ein.");
+}
+function notifyIncoming(){
+ $("requestCode").textContent=state.code||"LIVE";
+ $("pairModal").classList.add("show");
+ toast("🔔 DEINE PARTNER-VERBINDUNG IST DA!");
+ if(navigator.vibrate)navigator.vibrate([100,60,160]);
+}
+function notifyConnected(){
+ $("pairModal").classList.remove("show");
+ burstHearts();
+ toast("❤️ ECHTE VERBINDUNG HERGESTELLT!");
+}
+function finishIfReady(){
+ if(online()){
+   state.paired=true;save();notifyConnected();
+ }else render();
+}
+function safeSend(packet){
+ if(!online()){toast("⚠️ Noch keine bestätigte Live-Verbindung.");return false;}
+ try{conn.send(packet);return true}catch(e){toast("⚠️ Senden fehlgeschlagen.");return false;}
+}
+function createCode(){
+ disconnect(false);
+ role="host";intentionalClose=false;helloSent=false;helloAck=false;remoteReady=false;
+ const id="TOGETHER-"+crypto.randomUUID().replaceAll("-","").slice(0,8).toUpperCase();
+ peer=new Peer(id,{debug:0});
+ peer.on("open",opened=>{
+   state.code=opened;state.paired=false;save();
+   setConn("connecting","Warte auf deine Freundin/deinen Freund…","Dein echter Online-Code ist aktiv. Noch ist niemand verbunden.");
+   toast("🌐 Dein echter Code ist jetzt online.");
+ });
+ peer.on("connection",c=>{
+   if(conn&&conn.open){c.close();return;}
+   conn=c;wire(c,"host");
+ });
+ peer.on("error",e=>{
+   console.error(e);
+   toast("❌ Online-Fehler: "+(e.type==="unavailable-id"?"Code bereits vergeben. Bitte neu erstellen.":e.type||"Verbindung fehlgeschlagen"));
+   setConn("offline","Nicht verbunden","Der Online-Dienst konnte keine echte Verbindung aufbauen.");
+ });
+ peer.on("disconnected",()=>{if(!intentionalClose){setConn("offline","Offline","Der Signaling-Server ist nicht erreichbar.");}});
+ peer.on("close",()=>{conn=null;state.paired=false;save();});
+ show("connect");
+}
+function requestJoin(){
+ const raw=$("joinCode").value.trim().toUpperCase();
+ if(!/^TOGETHER-[A-Z0-9]{8}$/.test(raw)){toast("❌ Ungültiger echter Couple-Code.");return;}
+ disconnect(false);role="guest";intentionalClose=false;helloSent=false;helloAck=false;remoteReady=false;
+ peer=new Peer({debug:0});
+ peer.on("open",()=>{
+   setConn("connecting","Verbinde…","Echte Server-Verbindung wird ausgehandelt. Noch nicht als online bestätigt.");
+   conn=peer.connect(raw,{reliable:true,serialization:"json"});
+   wire(conn,"guest");
+ });
+ peer.on("error",e=>{
+   console.error(e);
+   toast("❌ Keine echte Verbindung: "+(e.type==="peer-unavailable"?"Der Host ist offline oder der Code ist falsch.":e.type||"Verbindungsfehler"));
+   setConn("offline","Nicht verbunden","Es wurde kein erreichbarer Host gefunden.");
+ });
+ peer.on("disconnected",()=>{if(!intentionalClose)setConn("offline","Offline","Signaling-Verbindung verloren.");});
+ peer.on("close",()=>{conn=null;state.paired=false;save();});
+}
+function wire(c,side){
+ c.on("open",()=>{
+   conn=c;
+   // Both sides must exchange HELLO and then explicitly ACK.
+   helloSent=true;
+   c.send({type:"HELLO",version:63,role:side,display:"Together"});
+   render();
+   if(side==="host")notifyIncoming();
+ });
+ c.on("data",p=>handlePacket(p));
+ c.on("close",()=>{
+   if(conn===c)conn=null;
+   state.paired=false;helloSent=false;helloAck=false;remoteReady=false;save();
+   toast("🔌 Die echte Verbindung wurde getrennt.");
+ });
+ c.on("error",e=>{console.error(e);toast("⚠️ WebRTC-Verbindung fehlgeschlagen.");});
+}
+function handlePacket(p){
+ if(!p||typeof p!=="object")return;
+ if(p.type==="REJECT"){toast("❌ Dein Partner hat die Verbindung abgelehnt.");disconnect(false);return;}
+ if(p.type==="HELLO"){
+   remoteReady=true;
+   try{conn.send({type:"HELLO_ACK",hostTime:Date.now()});}catch{}
+   // Guest gets no fake success: it waits for ACK from host.
+   render();
+   return;
+ }
+ if(p.type==="HELLO_ACK"){
+   helloAck=true;
+   // Tell remote that this side has also accepted the handshake.
+   try{conn.send({type:"READY",at:Date.now()});}catch{}
+   finishIfReady();
+   return;
+ }
+ if(p.type==="READY"){
+   remoteReady=true;
+   // If host received READY, explicitly ACK it back so both have proof.
+   try{conn.send({type:"READY_ACK",at:Date.now()});}catch{}
+   finishIfReady();
+   return;
+ }
+ if(p.type==="READY_ACK"){helloAck=true;remoteReady=true;finishIfReady();return;}
+ if(p.type==="chat"){state.messages.push({text:String(p.text).slice(0,1000),me:false});save();toast("💬 Neue Nachricht ❤️");return;}
+ if(p.type==="mood"){state.mood=[p.emoji,p.label];save();toast("🥰 Mood live synchronisiert");return;}
+ if(p.type==="xp"){state.xp+=Number(p.amount)||0;save();toast("✨ +"+p.amount+" XP live von deinem Partner");return;}
+ if(p.type==="heart"){burstHearts();heartPulse(false);return;}
+ if(p.type==="memory"){addRemoteMemory(String(p.title).slice(0,100));return;}
+}
+function disconnect(showToast=true){
+ intentionalClose=true;
+ if(conn){try{conn.close()}catch{}}
+ if(peer){try{peer.destroy()}catch{}}
+ conn=null;peer=null;role=null;helloSent=false;helloAck=false;remoteReady=false;state.paired=false;
+ save();if(showToast)toast("🔌 Offline — Verbindung sauber getrennt.");
+}
+function copyCode(){if(!state.code)return toast("Erst einen echten Online-Code erstellen.");navigator.clipboard?.writeText(state.code);toast("📋 Echter Code kopiert.");}
+function burstHearts(){for(let i=0;i<18;i++)setTimeout(()=>spawn(["💖","✨","💞","❤️","🌟"][i%5]),i*65);}
+function heartPulse(send=true){const core=document.querySelector(".heart-core");if(core){core.classList.remove("heart-hit");void core.offsetWidth;core.classList.add("heart-hit");}if(send)safeSend({type:"heart"});}
+function reward(){state.coins+=100;state.xp+=25;save();safeSend({type:"xp",amount:25});toast("🎁 +100 Coins · +25 XP");}
+function completeQuest(btn){btn.closest(".quest").classList.add("done");let amount=Number((btn.textContent.match(/\d+/)||[0])[0]);state.xp+=amount;save();safeSend({type:"xp",amount});toast("Quest geschafft! ✨");}
+function mood(e,t){state.mood=[e,t];save();safeSend({type:"mood",emoji:e,label:t});toast("🥰 Mood live gesendet");}
+function houseAction(e,t){let amount=e==="💖"?15:10;state.xp+=amount;save();safeSend({type:"xp",amount});spawn(e);toast(t);}
+function spawn(char){let p=document.createElement("div");p.className="particle";p.textContent=char;p.style.left=Math.random()*90+"%";p.style.bottom="0";$("house").appendChild(p);setTimeout(()=>p.remove(),5000);}
+function feedPet(){if(state.coins<20)return toast("Nicht genug Coins.");state.coins-=20;state.xp+=10;if(state.xp>420)state.pet="🐶";save();safeSend({type:"xp",amount:10});toast("🐾 Euer Pet freut sich!");}
+function addMemory(){let title=prompt("Name der Erinnerung?");if(!title)return;addRemoteMemory(title);safeSend({type:"memory",title});}
+function addRemoteMemory(title){let d=document.createElement("div");d.className="memory";d.innerHTML="✨<br><b>"+escapeHtml(title)+"</b><br><small class='muted'>Gerade eben · live</small>";$("memoryList").prepend(d);state.xp+=20;save();toast("📸 Erinnerung live geteilt");}
+function saveLetter(){state.letter=$("letter").value;save();toast("💌 Love Letter lokal versiegelt.");}
+function dateIdea(){let a=["Picknick bei Sonnenuntergang 🌅","Blindes Dessert-Tasting 🍰","Handy-freier Abend 📵","Zusammen kochen 🍝","Nachtspaziergang 🌙","Mini-Roadtrip 🚗","Mitternachts-Eis 🍦","Sterne zählen ✨","Mystery-Date 🎲"];$("dateIdea").textContent=a[Math.floor(Math.random()*a.length)];}
+function sendMsg(){let x=$("chatInput").value.trim();if(!x)return;if(!online())return toast("⚠️ Chat ist noch nicht echt online.");state.messages.push({text:x,me:true});$("chatInput").value="";save();safeSend({type:"chat",text:x});}
+function seedStars(){for(let i=0;i<32;i++){let s=document.createElement("i");s.className="star";s.style.left=Math.random()*100+"%";s.style.top=Math.random()*56+"%";s.style.animationDelay=Math.random()*2.5+"s";$("stars").appendChild(s);}}
+function tiltCards(){if(matchMedia("(prefers-reduced-motion: reduce)").matches)return;document.querySelectorAll(".card").forEach(card=>{card.addEventListener("pointermove",e=>{let r=card.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;card.style.transform=`perspective(900px) rotateX(${(-y*2.2).toFixed(2)}deg) rotateY(${(x*2.2).toFixed(2)}deg)`});card.addEventListener("pointerleave",()=>card.style.transform="")});}
+function acceptPair(){
+  if(!conn||!conn.open){toast("⚠️ Die echte Verbindung ist schon weg.");$("pairModal").classList.remove("show");return;}
+  try{conn.send({type:"READY",accepted:true,at:Date.now()});helloAck=true;remoteReady=true;}catch{}
+  $("pairModal").classList.remove("show");
+  finishIfReady();
+}
+function rejectPair(){
+  if(conn&&conn.open){try{conn.send({type:"REJECT",at:Date.now()})}catch{}}
+  $("pairModal").classList.remove("show");disconnect(true);
+}
+function boot(){render();if(state.letter)$("letter").value=state.letter;seedStars();tiltCards();}
+boot();
+</script>
+
+<script>
+/* TOGETHER 7.0 — reliable couple-code creation
+   Code generation is local and deterministic enough for display/storage.
+   It does NOT mark anyone as connected. Real online state remains PeerJS-handshake based.
+*/
+(function(){
+  const CODE_KEY = "together_host_code_v64";
+
+  function makeCode(){
+    const chars = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+    let s = "";
+    const a = new Uint32Array(8);
+    if (window.crypto && crypto.getRandomValues) crypto.getRandomValues(a);
+    else for(let i=0;i<a.length;i++) a[i] = Math.floor(Math.random()*0xffffffff);
+    for(let i=0;i<8;i++) s += chars[a[i] % chars.length];
+    return "TOGETHER-" + s;
+  }
+
+  function normalizeCode(v){
+    return String(v || "")
+      .trim()
+      .toUpperCase()
+      .replace(/\s+/g,"")
+      .replace(/[^A-Z0-9-]/g,"");
+  }
+
+  function findCodeInput(){
+    return document.querySelector(
+      '#connectCode, #codeInput, input[name="code"], input[placeholder*="Code" i], input[placeholder*="code" i]'
+    );
+  }
+
+  function findCodeDisplay(){
+    return document.querySelector(
+      '#myCode, #hostCode, #generatedCode, [data-code-display], .my-code, .host-code'
+    );
+  }
+
+  function setVisibleCode(code){
+    const display = findCodeDisplay();
+    if(display){
+      if("value" in display) display.value = code;
+      else display.textContent = code;
+      display.classList.add("code-ready");
+    }
+    const input = findCodeInput();
+    if(input && !input.value) input.value = code;
+    document.querySelectorAll("[data-copy-code]").forEach(b => {
+      b.dataset.code = code;
+      b.disabled = false;
+    });
+    window.dispatchEvent(new CustomEvent("together:code-created",{detail:{code}}));
+  }
+
+  function createCodeV64(){
+    let code = makeCode();
+    localStorage.setItem(CODE_KEY, code);
+    setVisibleCode(code);
+
+    // Keep existing app state in sync when present.
+    try{
+      if(window.state){
+        window.state.hostCode = code;
+        if(typeof window.save === "function") window.save();
+      }
+    }catch(e){}
+
+    if(typeof window.toast === "function") window.toast("Dein Verbindungscode ist bereit.");
+    return code;
+  }
+
+  async function copyCodeV64(code){
+    code = normalizeCode(code || localStorage.getItem(CODE_KEY));
+    if(!code) return;
+    try{
+      await navigator.clipboard.writeText(code);
+    }catch(e){
+      const ta=document.createElement("textarea");
+      ta.value=code; ta.style.position="fixed"; ta.style.opacity="0";
+      document.body.appendChild(ta); ta.select(); document.execCommand("copy"); ta.remove();
+    }
+    if(typeof window.toast === "function") window.toast("Code kopiert.");
+  }
+
+  // Expose stable functions for the existing UI.
+  window.createTogetherCode = createCodeV64;
+  window.copyTogetherCode = copyCodeV64;
+
+  // Catch common existing button labels/handlers without replacing connection logic.
+  document.addEventListener("click", function(ev){
+    const btn = ev.target.closest("button, [role='button']");
+    if(!btn) return;
+    const txt = (btn.textContent || "").trim().toLowerCase();
+    const action = (btn.getAttribute("data-action") || "").toLowerCase();
+
+    if(
+      action === "create-code" ||
+      action === "generate-code" ||
+      txt.includes("code erstellen") ||
+      txt.includes("code generieren") ||
+      txt.includes("neuen code")
+    ){
+      ev.preventDefault();
+      ev.stopImmediatePropagation();
+      createCodeV64();
+    }
+
+    if(
+      action === "copy-code" ||
+      btn.hasAttribute("data-copy-code") ||
+      txt === "kopieren" ||
+      txt.includes("code kopieren")
+    ){
+      ev.preventDefault();
+      ev.stopImmediatePropagation();
+      const code = btn.dataset.code || localStorage.getItem(CODE_KEY) ||
+        (findCodeDisplay() && (findCodeDisplay().value || findCodeDisplay().textContent));
+      copyCodeV64(code);
+    }
+  }, true);
+
+  // Restore a previously created code on load. If none exists, leave UI ready
+  // for the user to explicitly create one.
+  document.addEventListener("DOMContentLoaded", function(){
+    const saved = normalizeCode(localStorage.getItem(CODE_KEY));
+    if(saved) setVisibleCode(saved);
+  });
+
+  // Also make a code available to the existing host creation flow if it asks.
+  window.addEventListener("together:request-code", function(){
+    const existing = normalizeCode(localStorage.getItem(CODE_KEY));
+    setVisibleCode(existing || createCodeV64());
+  });
+})();
+</script>
+
+
+<style>
+/* TOGETHER 7.0 — PREMIUM UNIVERSE LAYER */
+:root{
+  --u-bg:#050611;--u-card:rgba(15,18,38,.68);--u-line:rgba(255,255,255,.11);
+  --u-text:#f8f7ff;--u-muted:#9ca1bd;--u-pink:#ff4f9a;--u-violet:#8068ff;
+  --u-cyan:#52e5ff;--u-green:#63f3b2;--u-shadow:0 30px 90px rgba(0,0,0,.45);
+}
+body{background:
+ radial-gradient(circle at 15% 10%,rgba(128,104,255,.16),transparent 30%),
+ radial-gradient(circle at 85% 18%,rgba(255,79,154,.13),transparent 28%),
+ radial-gradient(circle at 50% 100%,rgba(82,229,255,.08),transparent 34%),
+ #050611!important;color:var(--u-text)}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+background-image:radial-gradient(rgba(255,255,255,.12) 1px,transparent 1px);
+background-size:42px 42px;opacity:.12;mask-image:linear-gradient(to bottom,black,transparent 90%)}
+.card,.panel,.glass,.connect-card,.chat-card,.memory-card{
+ backdrop-filter:blur(24px)!important;-webkit-backdrop-filter:blur(24px)!important;
+ border:1px solid var(--u-line)!important;box-shadow:var(--u-shadow)!important;
+ transition:transform .35s cubic-bezier(.2,.8,.2,1),border-color .35s,box-shadow .35s!important;
+}
+.card:hover,.panel:hover,.glass:hover,.connect-card:hover{transform:translateY(-5px);border-color:rgba(255,255,255,.2)!important}
+button{
+ border-radius:16px!important;transition:transform .2s,box-shadow .2s,filter .2s!important;
+}
+button:hover{transform:translateY(-2px);filter:brightness(1.08)}
+button:active{transform:scale(.97)}
+.u7-hero{
+ position:relative;overflow:hidden;margin:14px 0 22px;padding:28px;border-radius:30px;
+ background:linear-gradient(135deg,rgba(255,79,154,.13),rgba(128,104,255,.14) 45%,rgba(82,229,255,.07));
+ border:1px solid rgba(255,255,255,.12);box-shadow:0 30px 100px rgba(0,0,0,.4)
+}
+.u7-hero:after{content:"";position:absolute;width:280px;height:280px;right:-90px;top:-120px;
+border-radius:50%;background:radial-gradient(circle,rgba(255,79,154,.35),transparent 68%);
+animation:u7float 7s ease-in-out infinite}
+.u7-kicker{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#bfc5e9;font-weight:800}
+.u7-title{font-size:clamp(30px,6vw,62px);line-height:.95;font-weight:950;letter-spacing:-.055em;margin:8px 0}
+.u7-title span{background:linear-gradient(90deg,#fff,#ff8cc0,#9f92ff,#70efff);
+-webkit-background-clip:text;background-clip:text;color:transparent;background-size:220% auto;animation:u7grad 6s linear infinite}
+.u7-sub{color:var(--u-muted);max-width:680px;line-height:1.55}
+@keyframes u7grad{to{background-position:220% center}}
+@keyframes u7float{50%{transform:translate(-30px,25px) scale(1.12)}}
+.u7-world{
+ position:relative;margin:22px 0;padding:22px;border-radius:30px;overflow:hidden;
+ background:linear-gradient(180deg,rgba(8,10,27,.86),rgba(10,12,29,.66));
+ border:1px solid rgba(255,255,255,.12);box-shadow:0 35px 110px rgba(0,0,0,.5)
+}
+.u7-world-head{display:flex;justify-content:space-between;gap:16px;align-items:center;position:relative;z-index:2}
+.u7-live{display:flex;align-items:center;gap:8px;font-size:12px;color:#b9c0df}
+.u7-dot{width:9px;height:9px;border-radius:50%;background:#62677e;box-shadow:0 0 0 0 rgba(99,243,178,.5)}
+.u7-dot.live{background:var(--u-green);animation:u7pulse 1.6s infinite}
+@keyframes u7pulse{70%{box-shadow:0 0 0 10px rgba(99,243,178,0)}100%{box-shadow:0 0 0 0 rgba(99,243,178,0)}}
+.u7-stage{height:340px;position:relative;display:grid;place-items:center}
+.u7-core{
+ width:125px;height:125px;border-radius:50%;position:relative;z-index:4;
+ background:radial-gradient(circle at 35% 28%,#fff 0 4%,#ffb5d5 10%,#ff4f9a 27%,#8b55ff 60%,#17122f 100%);
+ box-shadow:0 0 35px rgba(255,79,154,.55),0 0 100px rgba(128,104,255,.28);
+ animation:u7core 3.2s ease-in-out infinite
+}
+.u7-core:before,.u7-core:after{content:"";position:absolute;inset:-28px;border-radius:50%;
+border:1px solid rgba(255,255,255,.13);animation:u7orbit 7s linear infinite}
+.u7-core:after{inset:-58px;border-color:rgba(82,229,255,.13);animation-duration:11s;animation-direction:reverse}
+@keyframes u7core{50%{transform:scale(1.08);box-shadow:0 0 55px rgba(255,79,154,.7),0 0 130px rgba(128,104,255,.38)}}
+@keyframes u7orbit{to{transform:rotate(360deg)}}
+.u7-star{position:absolute;width:4px;height:4px;border-radius:50%;background:#fff;opacity:.7;
+animation:u7star 3s ease-in-out infinite}
+@keyframes u7star{50%{transform:scale(1.8);opacity:1}}
+.u7-person{position:absolute;z-index:5;padding:10px 14px;border-radius:14px;
+background:rgba(7,9,22,.8);border:1px solid rgba(255,255,255,.12);font-size:12px;backdrop-filter:blur(12px)}
+.u7-person.a{left:5%;top:43%}.u7-person.b{right:5%;top:43%}
+.u7-line{position:absolute;height:1px;left:17%;right:17%;top:50%;
+background:linear-gradient(90deg,transparent,#ff4f9a,#8068ff,#52e5ff,transparent);
+opacity:.55;filter:drop-shadow(0 0 8px rgba(128,104,255,.6))}
+.u7-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.u7-action{padding:12px 15px!important;border:1px solid rgba(255,255,255,.11)!important;
+background:rgba(255,255,255,.055)!important;color:#fff!important}
+.u7-action.primary{background:linear-gradient(135deg,#ff4f9a,#8068ff)!important;border:0!important}
+.u7-feed{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:15px}
+.u7-mini{padding:14px;border-radius:18px;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.08)}
+.u7-mini b{display:block;font-size:18px}.u7-mini small{color:#8f95b1}
+@media(max-width:700px){.u7-stage{height:290px}.u7-person.a{left:1%}.u7-person.b{right:1%}.u7-line{left:13%;right:13%}.u7-feed{grid-template-columns:1fr}}
+.u7-ripple{position:absolute;left:50%;top:50%;width:20px;height:20px;border-radius:50%;
+border:2px solid rgba(255,255,255,.75);transform:translate(-50%,-50%);pointer-events:none;
+animation:u7ripple 1.3s ease-out forwards}
+@keyframes u7ripple{to{width:560px;height:560px;opacity:0}}
+</style>
+
+<section class="u7-hero" id="u7Hero">
+  <div class="u7-kicker">TOGETHER 7.0 · SHARED UNIVERSE</div>
+  <div class="u7-title">Euer eigenes<br><span>lebendiges Universum.</span></div>
+  <div class="u7-sub">Nicht einfach ein Dashboard. Ein gemeinsamer digitaler Ort, der auf eure echten Aktionen reagiert — und nur dann „live“ wird, wenn ihr tatsächlich verbunden seid.</div>
+</section>
+
+<section class="u7-world" id="sharedWorldCore">
+  <div class="u7-world-head">
+    <div>
+      <div class="u7-kicker">NEW · SHARED WORLD CORE</div>
+      <h2 style="margin:4px 0 0;font-size:25px">Der gemeinsame Kern</h2>
+    </div>
+    <div class="u7-live"><span class="u7-dot" id="u7LiveDot"></span><span id="u7LiveText">Warte auf echte Verbindung</span></div>
+  </div>
+  <div class="u7-stage" id="u7Stage">
+    <div class="u7-line"></div>
+    <div class="u7-person a">♥ Du</div>
+    <div class="u7-person b">♥ Partner</div>
+    <div class="u7-core" id="u7Core" title="Shared World Core"></div>
+    <i class="u7-star" style="left:18%;top:22%;animation-delay:.2s"></i>
+    <i class="u7-star" style="left:28%;top:70%;animation-delay:1.1s"></i>
+    <i class="u7-star" style="left:78%;top:25%;animation-delay:.7s"></i>
+    <i class="u7-star" style="left:83%;top:73%;animation-delay:1.7s"></i>
+    <i class="u7-star" style="left:47%;top:14%;animation-delay:2s"></i>
+  </div>
+  <div class="u7-actions">
+    <button class="u7-action primary" id="u7PulseBtn">♥ Gemeinsamen Puls senden</button>
+    <button class="u7-action" id="u7LoveBtn">✦ Liebe senden</button>
+    <button class="u7-action" id="u7CelebrateBtn">✧ Zusammen feiern</button>
+  </div>
+  <div class="u7-feed">
+    <div class="u7-mini"><b id="u7PulseCount">0</b><small>Shared Pulses</small></div>
+    <div class="u7-mini"><b id="u7LastAction">—</b><small>Letzte echte Aktion</small></div>
+    <div class="u7-mini"><b id="u7SyncState">LOCAL</b><small>Synchronisation</small></div>
+  </div>
+</section>
+
+<script>
+(function(){
+  const KEY="together_u7_pulses";
+  let count=Number(localStorage.getItem(KEY)||0);
+  const pulseCount=document.getElementById("u7PulseCount");
+  const last=document.getElementById("u7LastAction");
+  const sync=document.getElementById("u7SyncState");
+  const dot=document.getElementById("u7LiveDot");
+  const liveText=document.getElementById("u7LiveText");
+  const stage=document.getElementById("u7Stage");
+  const core=document.getElementById("u7Core");
+  const btn=document.getElementById("u7PulseBtn");
+  if(!core) return;
+  pulseCount.textContent=count;
+
+  function realOnline(){
+    try{
+      if(typeof window.online==="function") return !!window.online();
+      if(window.state && typeof window.state.paired==="boolean") return window.state.paired;
+    }catch(e){}
+    return false;
+  }
+  function setStatus(){
+    const ok=realOnline();
+    dot.classList.toggle("live",ok);
+    liveText.textContent=ok?"ECHT LIVE VERBUNDEN":"Warte auf echte Verbindung";
+    sync.textContent=ok?"LIVE":"LOCAL";
+    btn.disabled=!ok;
+    btn.style.opacity=ok?"1":".55";
+  }
+  function ripple(kind){
+    const r=document.createElement("div");r.className="u7-ripple";
+    stage.appendChild(r);setTimeout(()=>r.remove(),1400);
+    core.animate([{transform:"scale(1)"},{transform:"scale(1.22)"},{transform:"scale(1)"}],
+      {duration:700,easing:"cubic-bezier(.2,.9,.2,1)"});
+    last.textContent=kind;
+  }
+  function send(type,label){
+    if(!realOnline()){
+      if(typeof window.toast==="function") window.toast("Noch nicht echt verbunden.");
+      return;
+    }
+    // Use the app's real connection when available; no local simulation.
+    try{
+      if(window.conn && window.conn.open && typeof window.conn.send==="function"){
+        window.conn.send({type:type,from:"u7",at:Date.now()});
+      }else if(typeof window.sendPacket==="function"){
+        window.sendPacket({type:type,at:Date.now()});
+      }else{
+        if(typeof window.toast==="function") window.toast("Echte Verbindung ist nicht verfügbar.");
+        return;
+      }
+      count++;localStorage.setItem(KEY,String(count));pulseCount.textContent=count;
+      ripple(label);
+      if(typeof window.toast==="function") window.toast(label+" gesendet.");
+    }catch(e){
+      if(typeof window.toast==="function") window.toast("Aktion konnte nicht gesendet werden.");
+    }
+  }
+  document.getElementById("u7PulseBtn").onclick=()=>send("SHARED_PULSE","Puls ♥");
+  document.getElementById("u7LoveBtn").onclick=()=>send("SHARED_LOVE","Liebe ✦");
+  document.getElementById("u7CelebrateBtn").onclick=()=>send("SHARED_CELEBRATE","Feier ✧");
+
+  // Receive actual packets if the app exposes its packet handler by event.
+  window.addEventListener("together:packet",e=>{
+    const p=e.detail||{};
+    if(["SHARED_PULSE","SHARED_LOVE","SHARED_CELEBRATE"].includes(p.type)){
+      ripple(p.type==="SHARED_PULSE"?"Puls ♥":p.type==="SHARED_LOVE"?"Liebe ✦":"Feier ✧");
+    }
+  });
+  setStatus();
+  setInterval(setStatus,1000);
+})();
+</script>
+
+
+<style>
+.u8-gate{position:fixed;inset:0;z-index:99999;display:grid;place-items:center;padding:20px;background:radial-gradient(circle at 20% 20%,rgba(128,104,255,.25),transparent 35%),radial-gradient(circle at 80% 30%,rgba(255,79,154,.2),transparent 32%),#050611}
+.u8-gate.hidden{display:none}.u8-box{width:min(520px,100%);padding:32px;border:1px solid #ffffff20;border-radius:32px;background:#0b0d1fc7;backdrop-filter:blur(30px);box-shadow:0 40px 120px #000a}.u8-mark{font-size:11px;letter-spacing:.25em;color:#aeb5d5;font-weight:900}.u8-title{font-size:clamp(34px,9vw,58px);font-weight:950;line-height:.92;letter-spacing:-.06em;margin:10px 0}.u8-title span{background:linear-gradient(90deg,#fff,#ff76b3,#9b89ff,#6deaff);-webkit-background-clip:text;color:transparent}.u8-copy{color:#9ea4c0;line-height:1.55;margin-bottom:22px}.u8-tabs{display:flex;gap:7px;margin-bottom:15px}.u8-tab{flex:1;padding:12px;border:1px solid #ffffff18;background:#ffffff08;color:#aeb4d0;border-radius:14px}.u8-tab.active{background:linear-gradient(135deg,#ff4f9a,#8068ff);color:#fff;border:0}.u8-form{display:grid;gap:10px}.u8-form input{box-sizing:border-box;padding:15px 16px;border-radius:15px;border:1px solid #ffffff18;background:#0004;color:#fff;outline:0}.u8-submit{padding:15px;border:0;border-radius:15px;background:linear-gradient(135deg,#ff4f9a,#8068ff);color:white;font-weight:850}.u8-msg{min-height:20px;color:#ff9bc5;font-size:13px}.u8-online{position:fixed;right:16px;top:16px;z-index:9000;padding:9px 12px;border-radius:14px;background:#090c1ac2;border:1px solid #ffffff19;font-size:11px;color:#b9c0dc}.u8-online i{display:inline-block;width:7px;height:7px;border-radius:50%;background:#63f3b2;margin-right:7px}
+</style>
+<div class="u8-gate" id="u8Gate"><div class="u8-box">
+<div class="u8-mark">TOGETHER · REALTIME</div>
+<div class="u8-title">Euer echtes<br><span>Couple Universe.</span></div>
+<div class="u8-copy">Erstelle deinen Account und betrete euren gemeinsamen Online-Raum. Identität und Live-Aktivitäten laufen über den Together-Server.</div>
+<div class="u8-tabs"><button class="u8-tab active" id="u8R">Account erstellen</button><button class="u8-tab" id="u8L">Einloggen</button></div>
+<form class="u8-form" id="u8F"><input id="u8N" placeholder="Dein Name" required><input id="u8E" type="email" placeholder="E-Mail" required><input id="u8P" type="password" placeholder="Passwort (mind. 8 Zeichen)" required><button class="u8-submit">Account erstellen →</button><div class="u8-msg" id="u8M"></div></form>
+</div></div>
+<div class="u8-online"><i></i><span id="u8A">Authentifizierung</span></div>
+<script>
+(()=> {
+  const API = window.TOGETHER_API || (location.protocol==="file:" ? "http://localhost:8787" : location.origin);
+  window.togetherAPI = API;
+  let mode="r", tok=localStorage.getItem("together_session_v8")||"", ws=null;
+
+  const g=id=>document.getElementById(id);
+  const gate=g("u8Gate"), n=g("u8N"), e=g("u8E"), p=g("u8P"), m=g("u8M"), sub=document.querySelector(".u8-submit");
+
+  function setAuthStatus(text, ok=false){
+    const a=g("u8A");
+    a.textContent=text;
+    a.parentElement.classList.toggle("ok", !!ok);
+  }
+
+  function tabs(){
+    g("u8R").classList.toggle("active",mode==="r");
+    g("u8L").classList.toggle("active",mode==="l");
+    n.style.display=mode==="r"?"block":"none";
+    n.required=mode==="r";
+    sub.textContent=mode==="r"?"Account erstellen →":"Einloggen →";
+  }
+
+  g("u8R").onclick=()=>{mode="r";tabs()};
+  g("u8L").onclick=()=>{mode="l";tabs()};
+  tabs();
+
+  async function api(path,data){
+    const r=await fetch(API+path,{
+      method:"POST",
+      headers:{"Content-Type":"application/json"},
+      body:JSON.stringify(data)
+    });
+    let x={};
+    try{x=await r.json()}catch(_){}
+    if(!r.ok) throw Error(x.error || x.detail || ("Together-Server HTTP "+r.status));
+    return x;
+  }
+
+  function enter(x){
+    tok=x.token;
+    localStorage.setItem("together_session_v8",tok);
+    gate.classList.add("hidden");
+    setAuthStatus(x.user.name+" · Realtime wird verbunden…");
+    startRealtime();
+  }
+
+  g("u8F").onsubmit=async ev=>{
+    ev.preventDefault();
+    sub.disabled=true;
+    m.textContent="Account wird sicher mit Together verbunden…";
+    try{
+      enter(await api(mode==="r"?"/api/register":"/api/login",
+        mode==="r"
+          ? {name:n.value.trim(),email:e.value.trim(),password:p.value}
+          : {email:e.value.trim(),password:p.value}
+      ));
+      m.textContent="";
+    }catch(x){
+      m.textContent=x.message||"Verbindung fehlgeschlagen.";
+    }finally{
+      sub.disabled=false;
+    }
+  };
+
+  async function boot(){
+    if(!tok) return;
+    try{
+      const r=await fetch(API+"/api/me",{headers:{Authorization:"Bearer "+tok}});
+      if(!r.ok) throw 0;
+      enter(await r.json());
+    }catch(_){
+      localStorage.removeItem("together_session_v8");
+      tok="";
+    }
+  }
+
+  function realtimeUrl(){
+    const base=new URL(API,location.href);
+    base.protocol=base.protocol==="https:"?"wss:":"ws:";
+    base.pathname=base.pathname.replace(/\/$/,"")+"/ws";
+    base.search="";
+    base.searchParams.set("token",tok);
+    return base.toString();
+  }
+
+  function startRealtime(){
+    if(!tok) return;
+    try{
+      ws=new WebSocket(realtimeUrl());
+    }catch(err){
+      // Never surface the browser's cryptic "The string did not match the expected pattern."
+      // as an account error. Authentication already succeeded.
+      window.togetherRealtimeOpen=false;
+      setAuthStatus("Account aktiv · Realtime nicht verbunden");
+      if(typeof window.toast==="function") window.toast("Realtime-Server nicht erreichbar.");
+      return;
+    }
+
+    window.togetherRealtimeOpen=false;
+    ws.onopen=()=>{
+      window.togetherRealtimeOpen=true;
+      setAuthStatus((g("u8N").value||"Together")+" · ONLINE",true);
+      if(typeof window.toast==="function") window.toast("✓ Echtzeitverbindung steht.");
+      window.dispatchEvent(new CustomEvent("together:realtime",{detail:{open:true}}));
+    };
+    ws.onclose=()=>{
+      window.togetherRealtimeOpen=false;
+      setAuthStatus((g("u8N").value||"Together")+" · Realtime getrennt");
+      window.dispatchEvent(new CustomEvent("together:realtime",{detail:{open:false}}));
+    };
+    ws.onerror=()=>{
+      window.togetherRealtimeOpen=false;
+      window.dispatchEvent(new CustomEvent("together:realtime",{detail:{open:false}}));
+    };
+    ws.onmessage=ev=>{
+      try{
+        const packet=JSON.parse(ev.data);
+        dispatchEvent(new CustomEvent("together:packet",{detail:packet}));
+      }catch(_){}
+    };
+
+    window.togetherServer={
+      send(packet){
+        if(!ws || ws.readyState!==WebSocket.OPEN) return false;
+        ws.send(JSON.stringify(packet));
+        return true;
+      },
+      ready(){return !!ws && ws.readyState===WebSocket.OPEN},
+      close(){try{ws&&ws.close()}catch(_){}}
+    };
+  }
+
+  boot();
+})();
+</script>
+
+<style>
+/* TOGETHER 9.0 — COSMIC COUPLE OS */
+.u9-shell{position:relative;z-index:2;margin:0 auto 110px;max-width:1180px;padding:0 16px}
+.u9-nav{display:flex;gap:8px;overflow:auto;padding:10px 2px 16px;scrollbar-width:none}
+.u9-nav::-webkit-scrollbar{display:none}
+.u9-nav button{white-space:nowrap;padding:11px 15px;border:1px solid #ffffff15;background:#ffffff07;color:#aeb4d0;border-radius:14px;font-weight:750}
+.u9-nav button.active{background:linear-gradient(135deg,#ff4f9a,#8068ff);color:white;border-color:transparent;box-shadow:0 10px 30px #8068ff25}
+.u9-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:14px}
+.u9-card{position:relative;overflow:hidden;border:1px solid #ffffff12;border-radius:26px;background:linear-gradient(145deg,#101329c9,#090b1bc9);box-shadow:0 25px 80px #0008;padding:22px;backdrop-filter:blur(22px)}
+.u9-card:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 90% 0%,#8068ff17,transparent 35%);pointer-events:none}
+.u9-kicker{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#8e96b8;font-weight:900}
+.u9-h{font-size:27px;font-weight:950;letter-spacing:-.04em;margin:5px 0 13px}
+.u9-muted{color:#9299b8;font-size:13px;line-height:1.5}
+.u9-big{font-size:43px;font-weight:950;letter-spacing:-.05em}
+.u9-row{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.u9-meter{height:9px;border-radius:99px;background:#ffffff0b;overflow:hidden;margin-top:13px}
+.u9-meter i{display:block;height:100%;width:0;background:linear-gradient(90deg,#ff4f9a,#8068ff,#52e5ff);border-radius:99px;transition:width 1s cubic-bezier(.2,.8,.2,1)}
+.u9-avatar{width:54px;height:54px;border-radius:18px;display:grid;place-items:center;font-size:22px;font-weight:900;background:linear-gradient(135deg,#ff4f9a,#8068ff);box-shadow:0 10px 30px #8068ff30}
+.u9-pair{display:flex;align-items:center;gap:12px}
+.u9-pair .heart{font-size:20px;animation:u9heart 1.8s ease-in-out infinite}
+@keyframes u9heart{50%{transform:scale(1.18)}}
+.u9-actions{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:16px}
+.u9-act{padding:13px 9px;border:1px solid #ffffff12;background:#ffffff07;color:#fff;border-radius:16px;font-weight:800}
+.u9-act:hover{background:#ffffff10}
+.u9-feed{display:grid;gap:9px;margin-top:12px}
+.u9-event{display:flex;gap:12px;align-items:center;padding:12px;border-radius:16px;background:#ffffff05;border:1px solid #ffffff0b}
+.u9-event .ico{width:35px;height:35px;border-radius:12px;display:grid;place-items:center;background:#ffffff0b}
+.u9-event small{color:#7f87a8}
+.u9-missions{display:grid;gap:9px;margin-top:10px}
+.u9-mission{padding:13px;border-radius:17px;background:#ffffff05;border:1px solid #ffffff0b}
+.u9-mission.done{border-color:#63f3b255}
+.u9-mission .top{display:flex;justify-content:space-between;gap:10px}
+.u9-mission b{font-size:13px}.u9-mission small{color:#838aa9}
+.u9-chip{font-size:10px;padding:5px 8px;border-radius:99px;background:#ffffff0b;color:#aeb5d1}
+.u9-orb{height:245px;display:grid;place-items:center;position:relative}
+.u9-orb-core{width:105px;height:105px;border-radius:50%;background:radial-gradient(circle at 30% 25%,#fff,#ff8fbd 12%,#ff4f9a 30%,#8068ff 65%,#17142e);box-shadow:0 0 35px #ff4f9a88,0 0 100px #8068ff44;animation:u9orb 3s ease-in-out infinite}
+.u9-orb:before,.u9-orb:after{content:"";position:absolute;border:1px solid #ffffff15;border-radius:50%;width:180px;height:180px;animation:u9spin 8s linear infinite}.u9-orb:after{width:235px;height:235px;border-color:#52e5ff18;animation-duration:13s;animation-direction:reverse}
+@keyframes u9orb{50%{transform:scale(1.08);box-shadow:0 0 55px #ff4f9aaa,0 0 130px #8068ff55}}@keyframes u9spin{to{transform:rotate(360deg)}}
+.u9-tabpage{display:none}.u9-tabpage.active{display:block;animation:u9in .35s ease-out}@keyframes u9in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.u9-ach{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-top:12px}.u9-ach div{padding:13px;border-radius:16px;text-align:center;background:#ffffff05;border:1px solid #ffffff0b}.u9-ach span{font-size:24px;display:block;margin-bottom:6px}.u9-ach small{font-size:10px;color:#8991b0}
+@media(max-width:780px){.u9-grid{grid-template-columns:1fr}.u9-actions{grid-template-columns:1fr 1fr}.u9-ach{grid-template-columns:1fr 1fr}}
+</style>
+
+<div class="u9-shell" id="u9App">
+  <div class="u9-nav">
+    <button class="active" data-u9="home">✦ Universe</button>
+    <button data-u9="missions">⚡ Missions</button>
+    <button data-u9="moments">♡ Moments</button>
+    <button data-u9="profile">◉ Profile</button>
+  </div>
+
+  <section class="u9-tabpage active" id="u9-home">
+    <div class="u9-grid">
+      <div class="u9-card">
+        <div class="u9-kicker">LIVE COUPLE STATUS</div>
+        <div class="u9-row">
+          <div><div class="u9-h">Euer Universe</div><div class="u9-muted">Ein gemeinsamer digitaler Ort — synchronisiert über den echten Realtime-Kanal.</div></div>
+          <div class="u9-pair"><div class="u9-avatar">♥</div><span class="heart">∞</span><div class="u9-avatar">♥</div></div>
+        </div>
+        <div style="margin-top:18px"><div class="u9-row"><span class="u9-muted">Couple Energy</span><b id="u9Energy">72%</b></div><div class="u9-meter"><i id="u9EnergyBar"></i></div></div>
+        <div class="u9-actions">
+          <button class="u9-act" data-u9-send="SHARED_PULSE">♥ Puls</button>
+          <button class="u9-act" data-u9-send="SHARED_LOVE">✦ Liebe</button>
+          <button class="u9-act" data-u9-send="SHARED_CELEBRATE">✧ Feiern</button>
+        </div>
+      </div>
+
+      <div class="u9-card">
+        <div class="u9-kicker">SHARED WORLD CORE</div>
+        <div class="u9-orb"><div class="u9-orb-core"></div></div>
+        <div class="u9-row"><span class="u9-muted">Reaktor</span><b id="u9Reactor">READY</b></div>
+      </div>
+
+      <div class="u9-card">
+        <div class="u9-kicker">TODAY</div><div class="u9-big" id="u9Today">0</div>
+        <div class="u9-muted">gemeinsame Aktionen</div>
+        <div class="u9-feed" id="u9Feed"><div class="u9-event"><div class="ico">✦</div><div><b>Universe gestartet</b><br><small>Jetzt</small></div></div></div>
+      </div>
+
+      <div class="u9-card">
+        <div class="u9-kicker">NEXT UNLOCK</div><div class="u9-h">Cosmic Date Night</div>
+        <div class="u9-muted">Sammelt gemeinsam Energie durch echte Aktionen. Bei 100% wird das nächste Couple-Feature freigeschaltet.</div>
+        <div class="u9-meter"><i id="u9UnlockBar"></i></div>
+        <div class="u9-row" style="margin-top:10px"><small class="u9-muted">72 / 100</small><span class="u9-chip">LOCKED</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="u9-tabpage" id="u9-missions">
+    <div class="u9-card"><div class="u9-kicker">DAILY COUPLE MISSIONS</div><div class="u9-h">Heute zusammen</div><div class="u9-muted">Missionen zählen nur durch echte Aktionen. Kein künstlicher Fortschritt.</div>
+      <div class="u9-missions">
+        <div class="u9-mission"><div class="top"><b>♥ Sendet euch einen Puls</b><span class="u9-chip">+8</span></div><small>Ein echter Live-Puls zwischen euch.</small></div>
+        <div class="u9-mission"><div class="top"><b>✦ Sagt „Ich liebe dich“</b><span class="u9-chip">+12</span></div><small>Schickt eine Love-Aktion.</small></div>
+        <div class="u9-mission"><div class="top"><b>✧ Feiert gemeinsam</b><span class="u9-chip">+15</span></div><small>Aktiviert euren gemeinsamen Celebration-Reaktor.</small></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="u9-tabpage" id="u9-moments">
+    <div class="u9-card"><div class="u9-kicker">COUPLE TIMELINE</div><div class="u9-h">Eure Momente</div><div class="u9-muted">Die Live-Aktivitäten werden hier als gemeinsamer Verlauf sichtbar.</div><div class="u9-feed" id="u9Moments"></div></div>
+  </section>
+
+  <section class="u9-tabpage" id="u9-profile">
+    <div class="u9-card"><div class="u9-kicker">YOUR UNIVERSE PROFILE</div><div class="u9-h">Couple Identity</div><div class="u9-muted">Dein Account bleibt die Identität für euren gemeinsamen Raum.</div>
+      <div class="u9-ach">
+        <div><span>🌙</span><small>Night Owl</small></div><div><span>💫</span><small>Cosmic</small></div><div><span>♥</span><small>Heart Sync</small></div><div><span>⚡</span><small>Live</small></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<script>
+(()=>{
+const q=s=>document.querySelector(s), qa=s=>[...document.querySelectorAll(s)];
+let actions=Number(localStorage.getItem("u9_actions")||0),energy=Number(localStorage.getItem("u9_energy")||72);
+const energyEl=q("#u9Energy"),bar=q("#u9EnergyBar"),unlock=q("#u9UnlockBar"),today=q("#u9Today"),feed=q("#u9Feed"),mom=q("#u9Moments"),react=q("#u9Reactor");
+function render(){energy=Math.min(100,energy);energyEl.textContent=energy+"%";bar.style.width=energy+"%";unlock.style.width=energy+"%";today.textContent=actions;localStorage.setItem("u9_actions",actions);localStorage.setItem("u9_energy",energy)}
+function online(){try{return !!(window.togetherServer&&window.togetherServer.ready&&window.togetherServer.ready()&&window.togetherRealtimeOpen)}catch(e){return false}}
+function act(type){
+ if(!online()){if(window.toast)toast("Bitte zuerst online anmelden.");return}
+ try{window.togetherServer.send({type});actions++;energy=Math.min(100,energy+2);render();react.textContent="LIVE";setTimeout(()=>react.textContent="READY",900);add(type,"Du");window.toast&&toast("Echte Aktion gesendet.");}
+ catch(e){window.toast&&toast("Aktion konnte nicht gesendet werden.")}
+}
+function add(type,name){
+ const labels={SHARED_PULSE:"Puls ♥",SHARED_LOVE:"Liebe ✦",SHARED_CELEBRATE:"Feier ✧",CHAT:"Nachricht"};
+ const row=document.createElement("div");row.className="u9-event";row.innerHTML='<div class="ico">'+(type==="SHARED_PULSE"?"♥":type==="SHARED_LOVE"?"✦":"✧")+'</div><div><b>'+labels[type]+'</b><br><small>'+name+' · gerade eben</small></div>';
+ feed.prepend(row);mom.prepend(row.cloneNode(true));
+}
+qa("[data-u9]").forEach(b=>b.onclick=()=>{qa(".u9-nav button").forEach(x=>x.classList.remove("active"));b.classList.add("active");qa(".u9-tabpage").forEach(x=>x.classList.remove("active"));q("#u9-"+b.dataset.u9).classList.add("active")});
+qa("[data-u9-send]").forEach(b=>b.onclick=()=>act(b.dataset.u9Send));
+addEventListener("together:packet",e=>{const p=e.detail||{};if(["SHARED_PULSE","SHARED_LOVE","SHARED_CELEBRATE"].includes(p.type)){actions++;energy=Math.min(100,energy+3);render();add(p.type,p.name||"Partner");react.textContent="SYNC";setTimeout(()=>react.textContent="READY",900)}});
+render();
+})();
+</script>
+
+<script>
+/* TOGETHER 9.1 — REAL SERVER PAIRING BRIDGE */
+(()=>{
+  const API=()=>window.togetherAPI||location.origin;
+  const q=id=>document.getElementById(id);
+
+  async function post(path,data){
+    const tok=localStorage.getItem("together_session_v8")||"";
+    const r=await fetch(API()+path,{
+      method:"POST",
+      headers:{
+        "Content-Type":"application/json",
+        ...(tok?{Authorization:"Bearer "+tok}:{})
+      },
+      body:JSON.stringify(data||{})
+    });
+    let x={}; try{x=await r.json()}catch(_){}
+    if(!r.ok) throw Error(x.error||"Serverfehler");
+    return x;
+  }
+
+  window.createCode=async function(){
+    if(!window.togetherRealtimeOpen){
+      toast("Bitte zuerst die echte Realtime-Verbindung herstellen.");
+      return;
+    }
+    try{
+      const x=await post("/api/pair/create",{});
+      if(q("coupleCode")) q("coupleCode").textContent=x.code;
+      if(typeof state==="object" && state){
+        state.code=x.code; state.paired=false;
+        if(typeof save==="function") save();
+      }
+      if(typeof setConn==="function") setConn("connecting","Warte auf deine Freundin/deinen Freund…","Dein echter Couple-Code ist aktiv.");
+      toast("🌐 Echter Couple-Code erstellt.");
+    }catch(e){toast("❌ "+(e.message||"Code konnte nicht erstellt werden."));}
+  };
+
+  window.requestJoin=async function(){
+    const raw=(q("joinCode")?.value||"").trim().toUpperCase();
+    if(!/^TOGETHER-[A-Z0-9]{8}$/.test(raw)){
+      toast("❌ Ungültiger Couple-Code.");
+      return;
+    }
+    if(!window.togetherRealtimeOpen){
+      toast("Bitte zuerst die echte Realtime-Verbindung herstellen.");
+      return;
+    }
+    try{
+      await post("/api/pair/join",{code:raw});
+      if(typeof state==="object" && state){
+        state.code=raw; state.paired=true;
+        if(typeof save==="function") save();
+      }
+      if(typeof setConn==="function") setConn("connected","Ihr seid live verbunden.","Die Verbindung läuft jetzt über den Together-Server.");
+      toast("💞 Ihr seid jetzt echt verbunden.");
+      window.dispatchEvent(new CustomEvent("together:paired",{detail:{paired:true}}));
+    }catch(e){toast("❌ "+(e.message||"Verbindung konnte nicht hergestellt werden."));}
+  };
+
+  window.addEventListener("together:packet",e=>{
+    const p=e.detail||{};
+    if(p.type==="PAIR_CONNECTED"){
+      if(typeof state==="object" && state){
+        state.paired=true;
+        if(typeof save==="function") save();
+      }
+      if(typeof setConn==="function") setConn("connected","Ihr seid live verbunden.","Dein Gegenüber ist gerade online.");
+      toast("💞 Dein Gegenüber ist jetzt online.");
+      window.dispatchEvent(new CustomEvent("together:paired",{detail:{paired:true}}));
+    }
+  });
+
+  window.addEventListener("together:realtime",e=>{
+    if(!e.detail?.open && typeof setConn==="function"){
+      setConn("offline","Realtime getrennt","Keine echte Serververbindung. Es wird nichts simuliert.");
+    }
+  });
+
+  // Patch the 9.0 action guard so local UI never claims an action was sent
+  // when the WebSocket is actually closed.
+  window.togetherServerSend=window.togetherServerSend||null;
+})();
+</script>
+
+</body>
+</html>

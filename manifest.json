@@ -1,0 +1,10 @@
+{
+  "name": "Together ❤️ Couple Universe 6.0",
+  "short_name": "Together",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#080811",
+  "theme_color": "#0b0b13",
+  "icons": [],
+  "description": "A polished Couple Universe with animated connection flow."
+}

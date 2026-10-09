@@ -1,0 +1,15 @@
+TOGETHER – EINFACHE CLOUDFLARE-VERSION
+
+Diese Dateien gehören ins Stammverzeichnis (Root) des GitHub-Repositories.
+Wichtig: index.html, manifest.json, worker.js, wrangler.json und package.json müssen direkt nebeneinander liegen.
+
+Cloudflare Build-Einstellungen:
+Root directory: /
+Build command: leer lassen
+Deploy command: npx wrangler deploy
+
+Nach dem Commit startet Cloudflare den Deploy automatisch.
+Live-Adresse: https://flennsche.pascaluixa.workers.dev
+Health-Test: https://flennsche.pascaluixa.workers.dev/api/health
+
+Hinweis: Dies ist ein Cloudflare-Worker-Projekt, nicht ein reines statisches Hosting-Projekt. Netlify Drop oder GitHub Pages würden die echten Account-/Realtime-API-Funktionen nicht ausführen.

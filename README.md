@@ -1,16 +1,27 @@
-## Hi there 👋
+# Together 9.1 — Cloudflare REALTIME deployment
 
-<!--
-**Flennsche/Flennsche** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+Die gezeigte Safari-Meldung wurde behoben: Die alte Version ließ einen WebSocket-Konstruktorfehler direkt als Registrierungsfehler erscheinen.
 
-Here are some ideas to get you started:
+Dieses Verzeichnis ist zusätzlich eine Cloudflare-native Variante:
+- Accounts + Sessions in einem Durable Object
+- echte WebSockets
+- Couple-Code direkt über den Server
+- Aktionen/Chat nur über die echte WebSocket-Verbindung
+- Nachrichten werden nur an Mitglieder desselben Couple-Raums gesendet
+- keine Fake-Online-Zustände
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+## Deployment
+
+Mit Node.js + Wrangler:
+
+```bash
+npm install -g wrangler
+wrangler login
+cd cloudflare
+npm install
+npm run deploy
+```
+
+Cloudflare Static Assets + Worker + Durable Object werden zusammen ausgerollt.
+
+Wichtig: Das ZIP selbst macht eine Website nicht automatisch öffentlich. Für eine echte `*.workers.dev`-Adresse muss dieser Cloudflare-Worker in deinem Cloudflare-Konto deployed werden.
